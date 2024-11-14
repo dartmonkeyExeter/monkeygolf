@@ -1,8 +1,130 @@
-body, html {
-	width: 100%;
-	height: 100%;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Optional, to match the container color */
 }
 
-#player {
+#gameContainer {
+    position: relative;
+    width: 100vw;
+    height: calc(100vw * 9 / 16); /* 16:9 aspect ratio */
+    max-width: calc(100vh * 16 / 9); /* Prevent exceeding viewport */
+    max-height: 100vh;
+    overflow: hidden;
+    background-color: #FFF;
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently */
+}
 
+.sprite {
+	position: absolute;
+	height: min-content;
+	width: min-content;
+	pointer-events: none;
+	transform: scale(2);
+}
+
+.sprite img {
+	image-rendering: pixelated;
+	display: block;
+	object-fit: contain;
+	pointer-events: none;
+}
+
+#hat {
+	z-index: 10;
+	right: 26%;
+	bottom: 42.5%;
+}
+
+#head {
+	z-index: 9;
+	right: 25%;
+	bottom: 40%;
+}
+
+#torso {
+	z-index: 8;
+	right: 23.25%;
+	bottom: 31%;
+}
+
+#upperLeftArm {
+	z-index: 9;
+	right: 24%;
+	bottom: 33%;
+}
+
+#upperRightArm {
+	z-index: 7;
+	right: 26.5%;
+	bottom: 33%;
+}
+
+#lowerLeftArm {
+	z-index: 9;
+	right: 26.25%;
+	bottom: 28.25%;
+}
+
+#lowerRightArm {
+	z-index: 7;
+	right: 27.5%;
+	bottom: 29%;
+	transform: rotate(-10deg) scale(2);
+}
+
+#leftHand {
+	z-index: 9;
+	right: 27.5%;
+	bottom: 26.5%;
+}
+
+#rightHand {
+	z-index: 7;
+	right: 28.25%;
+	bottom: 26.5%;
+}
+
+#upperLegs {
+	z-index: 7;
+	right: 22.5%;
+	bottom: 23%;
+}
+
+#lowerLeftLeg {
+	z-index: 6;
+	right: 22.5%;
+	bottom: 16.5%;
+}
+
+#lowerRightLeg {
+	z-index: 5;
+	right: 24.5%;
+	bottom: 16.5%;
+}
+
+#leftFoot {
+	z-index: 6;
+	right: 23%;
+	bottom: 12.5%;
+}
+
+#rightFoot {
+	z-index: 6;
+	right: 25%;
+	bottom: 13.75%;
+}
+
+#club {
+	z-index: 8;
+	right: 29.25%;
+	bottom: 14.5%;
 }
