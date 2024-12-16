@@ -1,0 +1,91 @@
+import sqlite3
+
+sql_queries = """
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY,
+    username TEXT NOT NULL,
+    hash TEXT NOT NULL,
+    email TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS characters (
+    character_id INTEGER PRIMARY KEY,
+    user_id INTEGER,
+    name TEXT,
+    class TEXT,
+    level INTEGER,
+    background TEXT,
+    player_name TEXT,
+    race TEXT,
+    alignment TEXT,
+    experience_points INTEGER,
+    strength INTEGER,
+    dexterity INTEGER,
+    constitution INTEGER,
+    intelligence INTEGER,
+    wisdom INTEGER,
+    charisma INTEGER,
+    proficiency_bonus INTEGER,
+    saving_throw_strength INTEGER,
+    saving_throw_dexterity INTEGER,
+    saving_throw_constitution INTEGER,
+    saving_throw_intelligence INTEGER,
+    saving_throw_wisdom INTEGER,
+    saving_throw_charisma INTEGER,
+    acrobatics INTEGER,
+    animal_handling INTEGER,
+    arcana INTEGER,
+    athletics INTEGER,
+    deception INTEGER,
+    history INTEGER,
+    insight INTEGER,
+    intimidation INTEGER,
+    investigation INTEGER,
+    medicine INTEGER,
+    nature INTEGER,
+    perception INTEGER,
+    performance INTEGER,
+    persuasion INTEGER,
+    religion INTEGER,
+    sleight_of_hand INTEGER,
+    stealth INTEGER,
+    survival INTEGER,
+    passive_perception INTEGER,
+    proficiencies_and_languages TEXT,
+    armor_class INTEGER,
+    initiative INTEGER,
+    speed INTEGER,
+    hit_point_maximum INTEGER,
+    current_hit_points INTEGER,
+    temporary_hit_points INTEGER,
+    hit_dice INTEGER,
+    attack_name_1 TEXT,
+    attack_bonus_1 INTEGER,
+    damage_dice_1 TEXT,
+    attack_name_2 TEXT,
+    attack_bonus_2 INTEGER,
+    damage_dice_2 TEXT,
+    attack_name_3 TEXT,
+    attack_bonus_3 INTEGER,
+    damage_dice_3 TEXT,
+    attacks_and_spellcasting TEXT,
+    cp INTEGER,
+    sp INTEGER,
+    ep INTEGER,
+    gp INTEGER,
+    pp INTEGER,
+    equipment TEXT,
+    personality_traits TEXT,
+    ideals TEXT,
+    bonds TEXT,
+    flaws TEXT,
+    features_and_traits TEXT,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+"""
+
+with sqlite3.connect('data.db') as conn:
+    cursor = conn.cursor()
+    cursor.executescript(sql_queries)
+    conn.commit()
+    cursor.close()
