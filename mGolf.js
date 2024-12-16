@@ -35,9 +35,6 @@ const exampleAnimation = [
     { frame: 5, sprites: { club: { position: { right: '29.25%', bottom: '14.5%' }, transform: 'rotate(225deg) scale(2)' } } } // just a test forn ow
 ]
 
-const swingAnimation = [
-    { frame: 0, sprites: { club: {}} }}
-
 function start() {
     requestAnimationFrame(update);
 }
